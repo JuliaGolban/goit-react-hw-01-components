@@ -1,85 +1,263 @@
 # React homework template
 
 This project was created with
-[Create React App](https://github.com/facebook/create-react-app). 
-To get acquainted and configure additional features
+[Create React App](https://github.com/facebook/create-react-app). To get
+acquainted and configure additional features
 [refer to documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 ## Preparing a new project
 
-1. Make sure you have an LTS version of Node.js installed on your computer.
+1. You have an LTS version of Node.js installed on your computer.
    [Download and install](https://nodejs.org/en/) if needed.
-2. Clone this repository.
-3. Change the folder name from `react-homework-template` to the name of your project.
-4. Create a new empty GitHub repository.
-5. Open the project in VSCode, launch the terminal and link the project to the GitHub repository 
-  [according to the instructions] (https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories #changing-a-remote-repositorys-url).
-6. Install the project's base dependencies with the `npm install` command.
-7. Start development mode by running the `npm start` command.
-8. Go to [http://localhost:3000](http://localhost:3000) in your browser.
- This page will automatically reload after saving changes to the project files.
+2. Use this
+   [React project template](https://github.com/goitacademy/react-homework-template/blob/main/README.en.md)
+   as a starting point for your application.
+3. Install the project's base dependencies with the `npm install` command.
+4. Start development mode by running the `npm start` command.
+5. Go to [http://localhost:3000](http://localhost:3000) in your browser. This
+   page will automatically reload after saving changes to the project files.
 
-## Deploy
+# Reception Criteria
 
-The production version of the project will automatically be linted, built, 
-and deployed to GitHub Pages, in the `gh-pages` branch, every time the `main` 
-branch is updated. For example, after a direct push or an accepted pull request. 
-To do this, you need to edit the `homepage` field in the `package.json` file, 
-replacing `your_username` and `your_repo_name` with your own, and submit the 
-changes to GitHub.
+- The `goit-react-hw-01-components` repository is created.
+- The components of all the tasks are rendered on the same page, inside a common
+  container - the `<App>` root component.
+- When you submit your homework, there should be a link to the repository with
+  the project source code.
+- The repository header has a link to the live page on `GitHub pages'.
+- When visiting the work page (GitHub pages) of the assignment, there are no
+  errors or warnings in the console.
+- Each component has a separate folder with a React component file and a styles
+  file.
+- The `propTypes` are described for all components.
+- Everything that a component expects in the form of props is delivered to it
+  when it is called.
+- The names of the components are clear and descriptive.
+- The JS code is clean and clear, using `Prettier`.
+- The styling is done by `CSS modules` or `Styled Components`, therefore the
+  classes in the resulting DOM will be different from the examples.
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
+## 1 - Social network profile
+
+We need to create a `Profile` component with which we could display information
+about a social network user. The data about the user is in the file `user.json`.
+
+[component preview](https://textbook.edu.goit.global/lms-react-homework/v1/en/img/hw-01/social-profile.png)
+
+### Description of the `Profile` component
+
+The component must accept several props with information about the user:
+
+- `username` — user name
+- `tag` — Social network tag without @
+- `location` — city and country
+- `avatar` — link to image
+- `stats` — object with information about activity
+
+The component must create a DOM element of the following structure:
+
+```html
+<div class="profile">
+  <div class="description">
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
+      alt="User avatar"
+      class="avatar"
+    />
+    <p class="name">Petra Marica</p>
+    <p class="tag">@pmarica</p>
+    <p class="location">Salvador, Brasil</p>
+  </div>
+
+  <ul class="stats">
+    <li>
+      <span class="label">Followers</span>
+      <span class="quantity">1000</span>
+    </li>
+    <li>
+      <span class="label">Views</span>
+      <span class="quantity">2000</span>
+    </li>
+    <li>
+      <span class="label">Likes</span>
+      <span class="quantity">3000</span>
+    </li>
+  </ul>
+</div>
 ```
 
-Next, you need to go to the settings of the GitHub repository (`Settings` > `Pages`) 
-and set the distribution of the production version of files from the `/root` 
-folder of the `gh-pages` branch, if this was not done automatically.
-
-![GitHub Pages settings](./assets/repo-settings.png)
-
-### Deployment status
-
-The deployment status of the latest commit is displayed with an icon next to its ID.
-
-- **Yellow color** - the project is being built and deployed.
-- **Green color** - deployment completed successfully.
-- **Red color** - an error occurred during linting, build or deployment.
-
-More detailed information about the status can be viewed by clicking on the icon, 
-and in the drop-down window, follow the link `Details`.
-
-![Deployment status](./assets/status.png)
-
-### Live page
-After some time, usually a couple of minutes, the live page can be viewed at the address 
-specified in the edited `homepage` property. For example, here is a link to a live version for this repository
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-If a blank page opens, make sure there are no errors in the `Console` tab related 
-to incorrect paths to the CSS and JS files of the project (**404**). You most likely 
-have the wrong value for the `homepage` property in the `package.json` file.
-
-### Routing
-If your application uses the `react-router-dom` library for routing, you must 
-additionally configure the `<BrowserRouter>` component by passing the exact name 
-of your repository in the `basename` prop. Slashes at the beginning and end of 
-the line are required.
+### Example of usage
 
 ```jsx
-<BrowserRouter basename="/your_repo_name/">
-  <App />
-</BrowserRouter>
+import user from 'path/to/user.json;
+
+<Profile
+  username={user.username}
+  tag={user.tag}
+  location={user.location}
+  avatar={user.avatar}
+  stats={user.stats}
+/>
 ```
 
-## How it works
+## 2- Statistics Section
 
-![How it works](./assets/how-it-works.png)
+Create a component `Statistics`, which would display statistics on the
+transferred props. For example, uploads to the cloud by file type, webpage
+visits by users from different countries, financial expenses, etc. The data
+about statistics is stored in the `data.json` file.
 
-1. After each push to the `main` branch of the GitHub repository, a special script 
-  (GitHub Action) is launched from the `.github/workflows/deploy.yml` file.
-2. All repository files are copied to the server, where the project is initialized 
-  and linted and built before deployment.
-3. If all steps are successful, the built production version of the project files is 
-  sent to the `gh-pages` branch. Otherwise, the script execution log will indicate 
-  what the problem is.
+[component preview](https://textbook.edu.goit.global/lms-react-homework/v1/en/img/hw-01/statistics.jpg)
+
+### Description of the Statistics component
+
+The component must accept two props `title` and `stats`, in which the header and
+the statistics object are specified.
+
+- `title` - is optional, and if it is not provided, the `<h2>` header markup
+  should not be rendered.
+- `stats` - An array of objects containing information about a statistical item.
+  It can have any number of elements.
+- You can skip the background color of the statistical item in the design, or
+  create a function to generate a random color.
+
+The component must create a DOM element of the following structure:
+
+```html
+<section class="statistics">
+  <h2 class="title">Upload stats</h2>
+
+  <ul class="stat-list">
+    <li class="item">
+      <span class="label">.docx</span>
+      <span class="percentage">4%</span>
+    </li>
+    <li class="item">
+      <span class="label">.mp3</span>
+      <span class="percentage">14%</span>
+    </li>
+    <li class="item">
+      <span class="label">.pdf</span>
+      <span class="percentage">41%</span>
+    </li>
+    <li class="item">
+      <span class="label">.mp4</span>
+      <span class="percentage">12%</span>
+    </li>
+  </ul>
+</section>
+```
+
+### Example of usage
+
+```jsx
+import data from '/path/to/data.json';
+
+<Statistics title="Upload stats" stats={data} />
+<Statistics stats={data} />
+```
+
+## 3 - Friends list
+
+We need to create a component `FriendList` with which we could display
+information about the user's friends. The information about friends is stored in
+the file `friends.json`.
+
+[component preview](https://textbook.edu.goit.global/lms-react-homework/v1/en/img/hw-01/friend-list.jpg)
+
+### Description of the `FriendList` component
+
+The component must accept one prop `friends` (an array of friend objects).
+
+The component must create a DOM of the following structure.
+
+```html
+<ul class="friend-list">
+  <!-- Any number of FriendListItem -->
+</ul>
+```
+
+### Description of the `FriendListItem` component
+
+The component must take several props:
+
+- `avatar` - link to the avatar
+- `name` - friend's name
+- `isOnline` - boolean indicating the status of a friend, online or offline.
+
+Depending on the props `isOnline`, the background color `span.status` should
+change. This can be done through a different CSS class or Styled Components.
+
+The component must create a DOM of the following structure.
+
+```html
+<li class="item">
+  <span class="status"></span>
+  <img class="avatar" src="" alt="User avatar" width="48" />
+  <p class="name"></p>
+</li>
+```
+
+### Example of usage
+
+```jsx
+import friends from 'path/to/friends.json';
+
+<FriendList friends={friends} />;
+```
+
+## 4 - Transaction History
+
+A component of the transaction history must be created in the personal profile
+of the Internet Bank.
+
+[component preview](https://textbook.edu.goit.global/lms-react-homework/v1/en/img/hw-01/transactions.jpg)
+
+Data for the list is available in JSON format in the file `transactions.json`.
+This is an array of objects where each object describes a single transaction
+with the following properties:
+
+- `id` — unique transaction identifier
+- `type` — transaction type
+- `amount` - transaction amount
+- `currency` - currency type
+
+### Description of the `TransactionHistory` component
+
+We need to create a component `TransactionHistory` that accepts one prop `items`
+(an array of transaction objects from `transactions.json`). The component
+creates a table layout. Each transaction is a table row. The example shows the
+markup of two transactions.
+
+```html
+<table class="transaction-history">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Amount</th>
+      <th>Currency</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Invoice</td>
+      <td>125</td>
+      <td>USD</td>
+    </tr>
+    <tr>
+      <td>Withdrawal</td>
+      <td>85</td>
+      <td>USD</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Example of usage
+
+```jsx
+import transactions from 'path/to/transactions.json';
+
+<TransactionHistory items={transactions} />;
+```
