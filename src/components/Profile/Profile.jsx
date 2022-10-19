@@ -33,7 +33,8 @@ export const Profile = ({ avatar, username, tag, location, followers, views, lik
 }
 
 Profile.prototype = {
-    user: PropTypes.shape({
+    user: PropTypes.arrayOf(
+         PropTypes.exact({
     username: PropTypes.string.isRequired,
     tag: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
@@ -41,5 +42,5 @@ Profile.prototype = {
     followers: PropTypes.number.isRequired,
     views: PropTypes.number.isRequired,
     likes: PropTypes.number.isRequired,
-    }).isRequired
+    }).isRequired)
 }
