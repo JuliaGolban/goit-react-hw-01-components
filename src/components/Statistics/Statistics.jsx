@@ -20,7 +20,7 @@ export const Statistics = ({title, stats}) => {
 Statistics.prototype = {
     title: PropTypes.string,
     stats: PropTypes.arrayOf(
-         PropTypes.exact({
+         PropTypes.shape({
             id: PropTypes.number.isRequired,
             label: PropTypes.string.isRequired,
             percentage: PropTypes.number.isRequired,}))
