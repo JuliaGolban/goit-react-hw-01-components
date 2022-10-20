@@ -10,7 +10,7 @@ export const FriendlistItem = ({ id, avatar, name, isOnline }) => {
         </li>)
 }
 
-FriendlistItem.prototype = {
+FriendlistItem.propTypes = {
     id: PropTypes.number.isRequired,
     avatar: PropTypes.string,
     name: PropTypes.string.isRequired,

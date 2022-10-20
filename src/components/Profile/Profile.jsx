@@ -32,7 +32,7 @@ export const Profile = ({ avatar, username, tag, location, followers, views, lik
     )
 }
 
-Profile.prototype = {
+Profile.propTypes = {
     user: PropTypes.arrayOf(
          PropTypes.shape({
     username: PropTypes.string.isRequired,

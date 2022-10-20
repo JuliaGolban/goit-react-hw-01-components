@@ -23,7 +23,7 @@ export const TransactionHistory = ({ items }) => {
         </table >)
 }
 
-TransactionHistory.prototype = {
+TransactionHistory.propTypes = {
     items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
